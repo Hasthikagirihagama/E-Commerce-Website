@@ -54,6 +54,15 @@ This project is an E-Commerce Website designed to provide a seamless online shop
 3. Configure the database connection in `includes/connect.php`.
 4. Start the server and navigate to the admin dashboard.
 
+## Setting Permissions
+
+If you encounter permission issues, you can set the correct permissions using the following commands:
+
+```bash
+sudo chmod -R 755 "/your path"
+sudo chown -R www-data:www-data "/your path"
+```
+
 ## Technologies Used
 
 - PHP
