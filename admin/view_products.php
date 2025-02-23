@@ -57,7 +57,7 @@
                             <td>
                                 <img src='./product_images/$product_image_one' alt='$product_title' width='80px' class='img-thumbnail'/>
                             </td>
-                            <td>$product_price $</td>
+                            <td><?php echo 'LKR ' . $product_price; ?></td>
                             <td>$quantity_sold_of_each_product</td>
                             <td>$product_status</td>
                             <td>

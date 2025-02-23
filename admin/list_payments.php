@@ -59,7 +59,7 @@
                             <td>$id_number</td>
                             <td>$order_id</td>
                             <td>$invoice_number</td>
-                            <td>$amount_due</td>
+                            <td><?php echo 'LKR ' . $amount_due; ?></td>
                             <td>$payment_method</td>
                             <td>$payment_date</td>
                             <td>

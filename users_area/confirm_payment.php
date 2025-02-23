@@ -8,7 +8,7 @@ if (isset($_GET['order_id'])) {
     $select_order_result = mysqli_query($con,$select_order_query);
     $row_fetch = mysqli_fetch_array($select_order_result);
     $invoice_number = $row_fetch['invoice_number'];
-    $amount_due = $row_fetch['amount_due'];
+    $amount_due = "LKR " . $row_fetch['amount_due'];
 
 }
 if(isset($_POST['confirm_payment'])){
