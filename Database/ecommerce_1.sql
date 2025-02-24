@@ -98,11 +98,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_title`) VALUES
-(1, 'Mobiles'),
-(2, 'Books'),
 (3, 'Food'),
 (4, 'Clothes'),
-(5, 'HeadPhones'),
 (6, 'Electronics'),
 (7, 'Accessories');
 
@@ -159,11 +156,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `product_keywords`, `category_id`, `brand_id`, `product_image_one`, `product_image_two`, `product_image_three`, `product_price`, `date`, `status`, `shop_id`) VALUES
-(1, 'HAVIT HV-G92 Gamepad', 'allows you to use the familiar layout and buttons to enjoy console control when playing games on your PC The Havit HV-G92 also has multiple game profiles for pressure and controller settings', 'gamepad , havit , hv-g92 , logistech', 6, 9, 'havit1.png', 'havit2.png', 'havit1.png', 120, '2025-02-20 16:29:33', 'true', 1),
+(1, 'HAVIT HV-G92 Gamepad', 'allows you to use the familiar layout and buttons to enjoy console control when playing games on your PC The Havit HV-G92 also has multiple game profiles for pressure and controller settings', 'gamepad , havit , hv-g92 , logistech', 7, 9, 'havit1.png', 'havit2.png', 'havit1.png', 120, '2025-02-20 16:29:33', 'true', 1),
 (2, 'ASUS FHD Gaming Laptop', 'Laptop ASUS TUF Gaming F15 FX506HF-HN001W(11th Intel® Core™ i5 11400H - Ram 8GB - Hard 512 GB SSD - GPU Nvidia Geforce RTX™ 2050 4GB - Display 15.6 4k', 'Laptop , gaming , asus , intell 11', 6, 2, 'lap1.png', 'lap2.png', 'lap3.png', 700, '2025-02-20 16:31:31', 'true', 1),
 (3, 'CANON EOS DSLR Camera', 'High Image Quality with 32.5 Megapixel CMOS (APS-C) Sensor DIGIC 8 Image Processor. High-Speed Continuous Shooting of up to 10 fps with no Time Lag during OVF Shooting. 4K (UHD) 30fps / FHD 120fps Video', 'Canon, camera , high quality, 4k', 6, 1, 'camera1.png', 'camera2.png', 'camera3.png', 380, '2025-02-20 16:33:31', 'true', 2),
 (4, 'Breed Dry Dog Food', 'Chicken, chicken by-product meal, corn, wheat, chicken fat, ground grain sorghum, natural flavors, dried plain beet pulp, egg product, potassium chloride, sodium hexametaphosphate, salt, cat food, dog food', 'food, dog food, cat food', 3, 9, 'food1.png', 'food2.png', 'food3.png', 100, '2025-02-20 16:39:31', 'true', 2),
-(5, 'Nike Dri-FIT Crew Training T-Shirt', 'The Nike Dri-FIT Mens T-Shirt delivers a soft feel, sweat-wicking performance and great range of motion to get you through your workout in total comfort.', 'Sports, Clothes', 4, 3, '655371c89356db08a30713c9-nike-men-s-dri-fit-crew-training-t-shirt.jpg', 'Drifit.jpeg', 'images.jpeg', 100, '2025-02-20 16:41:31', 'true', 2);
+(5, 'Nike Dri-FIT Crew Training T-Shirt', 'The Nike Dri-FIT Mens T-Shirt delivers a soft feel, sweat-wicking performance and great range of motion to get you through your workout in total comfort.', 'Sports, Clothes', 4, 3, '655371c89356db08a30713c9-nike-men-s-dri-fit-crew-training-t-shirt.jpg', 'Drifit.jpeg', 'images.jpeg', 100, '2025-02-20 16:41:31', 'true', 2),
+(6, 'Adicolor Classics 3-Stripes Tee', 'The Adicolor Classics 3-Stripes Tee is a must-have for your wardrobe. This tee is made from soft cotton for all-day comfort. The 3-Stripes design on the sleeves adds a sporty touch.', 'Sports, Clothes', 4, 3, 'adidas_black.png', 'adidas_blue.png', 'adidas_white.png', 100, '2025-02-20 16:41:31', 'true', 3),
+(7, 'Lenovo Legion Pro 5 Gen 8', 'The Lenovo Legion Pro 5 Gen 8 is a powerful gaming laptop that is perfect for gamers who want to take their gaming experience to the next level. The laptop is powered by an Intel Core i7 processor and comes with a dedicated NVIDIA GeForce RTX 3060 graphics card.', 'Lenovo, Gaming, Laptop', 6, 2, 'lenovo_1.png', 'lenovo_2.png', 'lenovo_3.png', 200, '2025-02-20 16:41:31', 'true', 3),
+(8, 'Feastables Milk Crunch', 'Feastables Milk Crunch is a delicious and nutritious snack that is perfect for any time of the day. The snack is made with real milk and is packed with essential nutrients that are good for your health.', 'Food, Snack', 3, 9, 'feastables_1.png', 'feastables_2.png', 'feastables_3.png', 50, '2025-02-20 16:41:31', 'true', 3);
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,8 @@ CREATE TABLE `shops` (
 
 INSERT INTO `shops` (`shop_id`, `shop_name`, `shop_description`, `shop_owner`) VALUES
 (1, 'Shop A', 'Description for Shop A', 'Owner A'),
-(2, 'Shop B', 'Description for Shop B', 'Owner B');
+(2, 'Shop B', 'Description for Shop B', 'Owner B'),
+(3, 'Shop C', 'Description for Shop C', 'Owner C');
 
 -- --------------------------------------------------------
 
@@ -199,17 +200,18 @@ CREATE TABLE `user_orders` (
   `invoice_number` int(255) NOT NULL,
   `total_products` int(255) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `order_status` varchar(255) NOT NULL
+  `order_status` varchar(255) NOT NULL,
+  `shop_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_orders`
 --
 
-INSERT INTO `user_orders` (`order_id`, `user_id`, `amount_due`, `invoice_number`, `total_products`, `order_date`, `order_status`) VALUES
-(1, 1, 1160, 312346784, 3, '2023-10-22 15:31:20', 'paid'),
-(2, 1, 760, 1918753782, 1, '2023-10-24 00:25:10', 'pending'),
-(3, 1, 240, 351837813, 1, '2023-10-24 18:41:02', 'pending');
+INSERT INTO `user_orders` (`order_id`, `user_id`, `amount_due`, `invoice_number`, `total_products`, `order_date`, `order_status`, `shop_id`) VALUES
+(1, 1, 1160, 312346784, 3, '2023-10-22 15:31:20', 'paid', 1),
+(2, 1, 760, 1918753782, 1, '2023-10-24 00:25:10', 'pending', 2),
+(3, 1, 240, 351837813, 1, '2023-10-24 18:41:02', 'pending', 1);
 
 -- --------------------------------------------------------
 
