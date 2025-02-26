@@ -48,7 +48,7 @@
                         $order_date = $row_fetch_order_details['order_date'];
                         $order_status = $row_fetch_order_details['order_status'];
                         $order_complete = $row_fetch_order_details['order_status'] == 'pending' ? 'Incomplete' : 'Complete';
-                        $shop_name = getShopNameByProductId($product_id); // Add this line to include the shop name
+                        $shop_name = getShopNameByProductId($order_id); 
                         echo $order_status == 'pending'? "
                         <tr>
                         <td>$serial_number</td>

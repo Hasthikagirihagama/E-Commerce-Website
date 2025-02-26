@@ -579,13 +579,14 @@ function displayShopsDropdown() {
     }
 }
 
-// Function to get shop name by product ID
-function getShopNameByProductId($product_id) {
+// Function to get shop name by order ID
+function getShopNameByProductId($order_id) {
     global $con;
     $query = "SELECT shops.shop_name FROM shops 
               JOIN products ON shops.shop_id = products.shop_id 
-              WHERE products.product_id = $product_id";
+              JOIN orders_pending ON products.product_id = orders_pending.product_id
+              WHERE orders_pending.order_id = $order_id";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
-    return $row['shop_name'];
+    return $row ? $row['shop_name'] : 'Unknown';
 }

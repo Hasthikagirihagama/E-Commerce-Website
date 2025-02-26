@@ -260,6 +260,52 @@ INSERT INTO `user_table` (`user_id`, `username`, `user_email`, `user_password`, 
 (1, 'Hasthika', 'girihagamahasthika@gmail.com', '1234', 'M9_C10_A0_P0.png', '::1', 'SriLanka', '123456789');
 
 --
+-- Table structure for table `shop_product_orders`
+--
+
+CREATE TABLE shop_product_orders (
+    shop_name VARCHAR(100),
+    product_title VARCHAR(120),
+    total_orders INT
+);
+
+-- Populate shop_product_orders table with data from orders_pending
+INSERT INTO shop_product_orders (shop_name, product_title, total_orders)
+SELECT 
+    s.shop_name,
+    p.product_title,
+    SUM(op.quantity) AS total_orders
+FROM 
+    orders_pending op
+JOIN 
+    products p ON op.product_id = p.product_id
+JOIN 
+    shops s ON p.shop_id = s.shop_id
+GROUP BY 
+    s.shop_name, p.product_title
+ORDER BY 
+    s.shop_name, p.product_title;
+
+-- Populate shop_product_orders table with data from user_orders
+INSERT INTO shop_product_orders (shop_name, product_title, total_orders)
+SELECT 
+    s.shop_name,
+    p.product_title,
+    SUM(uo.total_products) AS total_orders
+FROM 
+    user_orders uo
+JOIN 
+    products p ON uo.shop_id = p.shop_id
+JOIN 
+    shops s ON p.shop_id = s.shop_id
+GROUP BY 
+    s.shop_name, p.product_title
+ORDER BY 
+    s.shop_name, p.product_title;
+
+-- --------------------------------------------------------
+
+--
 -- Indexes for dumped tables
 --
 

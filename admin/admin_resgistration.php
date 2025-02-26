@@ -82,7 +82,7 @@ if (isset($_POST['admin_register'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $hash_password = password_hash($password,PASSWORD_DEFAULT);
+    $hash_password = password_hash($password, PASSWORD_DEFAULT);
     $conf_password = $_POST['conf_password'];
     $image = $_FILES['admin_image']['name'];
     $image_tmp = $_FILES['admin_image']['tmp_name'];
@@ -97,7 +97,7 @@ if (isset($_POST['admin_register'])) {
     } else {
         // insert query
         move_uploaded_file($image_tmp, "./admin_images/$image");
-        $insert_query = "INSERT INTO `admin_table` (admin_name,admin_email,admin_image,admin_password) VALUES ('$username','$email','$image','$hash_password')";
+        $insert_query = "INSERT INTO `admin_table` (admin_name, admin_email, admin_image, admin_password) VALUES ('$username', '$email', '$image', '$hash_password')";
         $insert_result = mysqli_query($con, $insert_query);
         if ($insert_result) {
             echo "<script>window.alert('Admin added successfully');</script>";
