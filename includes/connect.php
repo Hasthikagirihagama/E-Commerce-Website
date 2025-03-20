@@ -4,7 +4,7 @@
 $serverName = "mysql";
 $dBUsername = "root";
 $dBPassword = "root";
-$dBName = "nikitha_ecom_db";
+$dBName = "hasthika_db";
 
 //Before we can access data in the MySQL database, we need to be able to connect to the server
 $con = new mysqli($serverName,$dBUsername,$dBPassword,$dBName);

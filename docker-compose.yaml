@@ -1,0 +1,43 @@
+
+services:
+  webserver:
+    image: php:apache
+    container_name: ecom_webserver
+    restart: always
+    volumes:
+      - "./:/var/www/html"  # Mount entire project into the container
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    command: "bash -c 'docker-php-ext-install mysqli && apache2-foreground'"
+
+  mysql:
+    image: mysql:latest
+    container_name: ecom_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hasthika_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ecom_mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ecom_phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+
+volumes:
+  ecom_mysql_data:

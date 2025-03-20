@@ -58,17 +58,17 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
-(1, 'Canon'),
-(2, 'Lenovo'),
-(3, 'Nike'),
-(4, 'Dell'),
-(5, 'Polo'),
-(6, 'Hp'),
-(7, 'Apple'),
-(8, 'Oppo'),
-(9, 'Other'),
-(10, 'Samsung'),
-(13, 'Nokia');
+(1, 'Nike'),
+(2, 'Adidas'),
+(3, 'Tommy Hilfiger'),
+(4, 'Calvin Klein'),
+(5, 'Tartle'),
+(6, 'Carnage'),
+(7, 'Chanel'),
+(8, 'Levis'),
+(9, 'Zara'),
+(10, 'Ralph Lauren'),
+(13, 'H&M');
 
 -- --------------------------------------------------------
 
@@ -154,16 +154,15 @@ CREATE TABLE `products` (
 --
 -- Dumping data for table `products`
 --
-
 INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `product_keywords`, `category_id`, `brand_id`, `product_image_one`, `product_image_two`, `product_image_three`, `product_price`, `date`, `status`, `shop_id`) VALUES
-(1, 'HAVIT HV-G92 Gamepad', 'allows you to use the familiar layout and buttons to enjoy console control when playing games on your PC The Havit HV-G92 also has multiple game profiles for pressure and controller settings', 'gamepad , havit , hv-g92 , logistech', 7, 9, 'havit1.png', 'havit2.png', 'havit1.png', 120, '2025-02-20 16:29:33', 'true', 1),
-(2, 'ASUS FHD Gaming Laptop', 'Laptop ASUS TUF Gaming F15 FX506HF-HN001W(11th Intel® Core™ i5 11400H - Ram 8GB - Hard 512 GB SSD - GPU Nvidia Geforce RTX™ 2050 4GB - Display 15.6 4k', 'Laptop , gaming , asus , intell 11', 6, 2, 'lap1.png', 'lap2.png', 'lap3.png', 700, '2025-02-20 16:31:31', 'true', 1),
-(3, 'CANON EOS DSLR Camera', 'High Image Quality with 32.5 Megapixel CMOS (APS-C) Sensor DIGIC 8 Image Processor. High-Speed Continuous Shooting of up to 10 fps with no Time Lag during OVF Shooting. 4K (UHD) 30fps / FHD 120fps Video', 'Canon, camera , high quality, 4k', 6, 1, 'camera1.png', 'camera2.png', 'camera3.png', 380, '2025-02-20 16:33:31', 'true', 2),
-(4, 'Breed Dry Dog Food', 'Chicken, chicken by-product meal, corn, wheat, chicken fat, ground grain sorghum, natural flavors, dried plain beet pulp, egg product, potassium chloride, sodium hexametaphosphate, salt, cat food, dog food', 'food, dog food, cat food', 3, 9, 'food1.png', 'food2.png', 'food3.png', 100, '2025-02-20 16:39:31', 'true', 2),
-(5, 'Nike Dri-FIT Crew Training T-Shirt', 'The Nike Dri-FIT Mens T-Shirt delivers a soft feel, sweat-wicking performance and great range of motion to get you through your workout in total comfort.', 'Sports, Clothes', 4, 3, '655371c89356db08a30713c9-nike-men-s-dri-fit-crew-training-t-shirt.jpg', 'Drifit.jpeg', 'images.jpeg', 100, '2025-02-20 16:41:31', 'true', 2),
-(6, 'Adicolor Classics 3-Stripes Tee', 'The Adicolor Classics 3-Stripes Tee is a must-have for your wardrobe. This tee is made from soft cotton for all-day comfort. The 3-Stripes design on the sleeves adds a sporty touch.', 'Sports, Clothes', 4, 3, 'adidas_black.png', 'adidas_blue.png', 'adidas_white.png', 100, '2025-02-20 16:41:31', 'true', 3),
-(7, 'Lenovo Legion Pro 5 Gen 8', 'The Lenovo Legion Pro 5 Gen 8 is a powerful gaming laptop that is perfect for gamers who want to take their gaming experience to the next level. The laptop is powered by an Intel Core i7 processor and comes with a dedicated NVIDIA GeForce RTX 3060 graphics card.', 'Lenovo, Gaming, Laptop', 6, 2, 'lenovo_1.png', 'lenovo_2.png', 'lenovo_3.png', 200, '2025-02-20 16:41:31', 'true', 3),
-(8, 'Feastables Milk Crunch', 'Feastables Milk Crunch is a delicious and nutritious snack that is perfect for any time of the day. The snack is made with real milk and is packed with essential nutrients that are good for your health.', 'Food, Snack', 3, 9, 'feastables_1.png', 'feastables_2.png', 'feastables_3.png', 50, '2025-02-20 16:41:31', 'true', 3);
+(1, 'Nike Dri-FIT Crew Training T-Shirt', 'The Nike Dri-FIT Mens T-Shirt delivers a soft feel, sweat-wicking performance and great range of motion to get you through your workout in total comfort.', 'Sports, Clothes', 4, 1, 'nike1.png', 'nike2.png', 'nike3.png', 50, '2025-02-20 16:29:33', 'true', 1),
+(2, 'Adidas Originals Trefoil Hoodie', 'The Adidas Originals Trefoil Hoodie is a classic piece that combines comfort and style. Made from soft cotton, it features the iconic Trefoil logo on the chest.', 'Sports, Clothes', 4, 2, 'adidas1.png', 'adidas2.png', 'adidas3.png', 70, '2025-02-20 16:31:31', 'true', 1),
+(3, 'Tommy Hilfiger Essential Polo', 'The Tommy Hilfiger Essential Polo is a timeless piece that is perfect for any occasion. Made from high-quality cotton, it features the signature Tommy Hilfiger logo on the chest.', 'Casual, Clothes', 4, 3, 'tommy1.png', 'tommy2.png', 'tommy3.png', 80, '2025-02-20 16:33:31', 'true', 2),
+(4, 'Calvin Klein Modern Cotton Bralette', 'The Calvin Klein Modern Cotton Bralette is a comfortable and stylish piece that is perfect for everyday wear. Made from a soft cotton blend, it features the iconic Calvin Klein logo on the band.', 'Underwear, Clothes', 4, 4, 'ck1.png', 'ck2.png', 'ck3.png', 40, '2025-02-20 16:39:31', 'true', 2),
+(5, 'H&M Slim Fit Jeans', 'The H&M Slim Fit Jeans are a versatile piece that can be dressed up or down. Made from high-quality denim, they feature a slim fit and classic five-pocket styling.', 'Casual, Clothes', 4, 5, 'hm1.png', 'hm2.png', 'hm3.png', 60, '2025-02-20 16:41:31', 'true', 2),
+(6, 'Zara Basic T-Shirt', 'The Zara Basic T-Shirt is a wardrobe essential that is perfect for layering or wearing on its own. Made from soft cotton, it features a classic crew neck and short sleeves.', 'Casual, Clothes', 4, 6, 'zara1.png', 'zara2.png', 'zara3.png', 20, '2025-02-20 16:41:31', 'true', 3),
+(7, 'Ralph Lauren Polo Shirt', 'The Ralph Lauren Polo Shirt is a classic piece that is perfect for any occasion. Made from high-quality cotton, it features the signature Ralph Lauren logo on the chest.', 'Casual, Clothes', 4, 7, 'ralph1.png', 'ralph2.png', 'ralph3.png', 90, '2025-02-20 16:41:31', 'true', 3),
+(8, 'Levis 501 Original Fit Jeans', 'The Levis 501 Original Fit Jeans are a timeless piece that is perfect for any wardrobe. Made from high-quality denim, they feature a classic straight fit and five-pocket styling.', 'Casual, Clothes', 4, 8, 'levis1.png', 'levis2.png', 'levis3.png', 100, '2025-02-20 16:41:31', 'true', 3);
 
 -- --------------------------------------------------------
 
